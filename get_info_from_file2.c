@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 16:10:06 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 20:10:16 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 23:23:40 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@ static int		color_in_valid_format(char *c)
 	if (*c >= '0' && *c <= '9')
 		return (1);
 	return (0);
+}
+
+static int		is_valid_rgb(int color, int *v)
+{
+	if (color > 255)
+	{
+		ft_putstr("check rgb range!\n");
+		*v = 1;
+	}
+	return (color);
 }
 
 static void		init_colors(int *r, int *g, int *b)
@@ -38,15 +48,15 @@ void			set_valid_color(int *color, char **line, int *v)
 	*v = 0;
 	free(*line);
 	if (color_in_valid_format(colors[0]))
-		r = ft_atoi(colors[0]);
+		r = is_valid_rgb(ft_atoi(colors[0]), v);
 	else
 		*v = 1;
 	if (color_in_valid_format(colors[1]))
-		g = ft_atoi(colors[1]);
+		g = is_valid_rgb(ft_atoi(colors[1]), v);
 	else
 		*v = 1;
 	if (color_in_valid_format(colors[2]))
-		b = ft_atoi(colors[2]);
+		b = is_valid_rgb(ft_atoi(colors[2]), v);
 	else
 		*v = 1;
 	*color = rgb_to_decimal(r, g, b);

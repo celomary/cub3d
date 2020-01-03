@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:17:30 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 18:56:27 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 23:09:40 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ static void		get_resolution(t_map *map, char **str, int *v)
 	{
 		map->res.x = ft_atoi(resolution[1]);
 		map->res.y = ft_atoi(resolution[2]);
+		if ((map->res.x > 2560 || map->res.y > 1440) ||
+		(map->res.x < 650 || map->res.y < 350))
+		{
+			ft_putstr("R must be 650x350 <= R <= 2560x1440\n");
+			*v = 1;
+		}
 	}
 	free_chartable(&resolution);
 	free(*str);

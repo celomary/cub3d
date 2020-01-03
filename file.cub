@@ -1,13 +1,14 @@
-R 1720 1000
-
+R 1720 1200
 NO ./texture/wall2.xpm
 SO ./texture/wall3.xpm
-WE ./texture/wall4.XPM
+WE ./texture/wall4.xpm
 EA ./texture/wall6.xpm
-
 S ./texture/barrel.xpm
+
+
 C 108,199,249
 F 169,169,169
+
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 1 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1
 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1

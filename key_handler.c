@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/31 22:58:02 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 18:59:39 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 23:56:50 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ int		pressed_key(int key, void *param)
 	t_map	*map;
 
 	map = (t_map *)param;
+	if (key == 53)
+	{
+		clear(map);
+		exit(0);
+	}
 	if (key == 13 || key == 1)
 		map->keys[0] = key;
 	if (key == 0 || key == 2)
@@ -41,5 +46,15 @@ int		realease_key(int key, void *param)
 		map->keys[2] = -1;
 	if (key == 126 || key == 125)
 		map->keys[3] = -1;
+	return (0);
+}
+
+int		red_cross(void *param)
+{
+	t_map	*map;
+
+	map = (t_map *)param;
+	clear(map);
+	exit(0);
 	return (0);
 }

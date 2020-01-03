@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   play.c                                             :+:      :+:    :+:   */
+/*   errors2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/17 18:41:16 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 23:53:37 by mel-omar         ###   ########.fr       */
+/*   Created: 2020/01/03 22:41:51 by mel-omar          #+#    #+#             */
+/*   Updated: 2020/01/03 23:03:01 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		play(char *fname)
+int		check_missing_params(int **dep)
 {
-	t_map	map;
+	int		iter;
 
-	if (init_map(&map, fname))
-		return ;
-	image(&map);
-	mlx_put_image_to_window(map.mlx_ptr, map.win_ptr, map.img_ptr, 0, 0);
-	mlx_hook(map.win_ptr, 2, 0, pressed_key, &map);
-	mlx_hook(map.win_ptr, 3, 0, realease_key, &map);
-	mlx_hook(map.win_ptr, 17, 0, red_cross, &map);
-	mlx_loop_hook(map.mlx_ptr, move_player, &map);
-	mlx_loop(map.mlx_ptr);
+	iter = -1;
+	while (++iter < 8)
+	{
+		if ((*dep)[iter] == 0)
+		{
+			free(*dep);
+			ft_putstr("maybe there is missing parameter :(\n");
+			return (1);
+		}
+	}
+	free(*dep);
+	return (0);
 }

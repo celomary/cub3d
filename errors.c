@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 00:18:30 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 18:54:56 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 23:00:03 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ int				check_duplicate(char *file)
 		}
 		free(line);
 	}
-	free(dep);
 	close(fd);
-	return (0);
+	return (check_missing_params(&dep));
 }

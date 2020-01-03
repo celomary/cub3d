@@ -6,13 +6,13 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 06:34:17 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/02 22:52:21 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 18:52:37 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_tuple		*find_sprite_distance(t_map *map, t_vector *axis,
+static t_tuple		*find_sprite_distance(t_map *map, t_vector *axis,
 t_vector *horizental, t_vector *vertical)
 {
 	t_tuple		*p_dis;
@@ -25,7 +25,7 @@ t_vector *horizental, t_vector *vertical)
 	return (p_dis);
 }
 
-int			check_wall(t_tuple **sdist, float wall_dis)
+static int			check_wall(t_tuple **sdist, float wall_dis)
 {
 	if ((*sdist)->b >= wall_dis)
 	{
@@ -35,7 +35,7 @@ int			check_wall(t_tuple **sdist, float wall_dis)
 	return (1);
 }
 
-void		draw_sprites(t_map *map, t_vector *horizental,
+void				draw_sprites(t_map *map, t_vector *horizental,
 t_vector *vertical, t_sprite_params params)
 {
 	t_tuple		*sprite_distance;

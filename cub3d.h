@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 16:53:40 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 00:59:24 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 18:33:34 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,4 +131,5 @@ void			play(char *fname);
 int				check_map(t_map *map);
 int				start(char *str);
 t_vector		init_vector(float x, float y);
+void			free_gnl(int fd);
 #endif

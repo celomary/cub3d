@@ -6,26 +6,34 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 16:10:06 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 00:22:33 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 20:10:16 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int			color_in_valid_format(char *c)
+static int		color_in_valid_format(char *c)
 {
 	if (*c >= '0' && *c <= '9')
 		return (1);
 	return (0);
 }
 
-void		set_valid_color(int *color, char **line, int *v)
+static void		init_colors(int *r, int *g, int *b)
+{
+	*r = 0;
+	*g = 0;
+	*b = 0;
+}
+
+void			set_valid_color(int *color, char **line, int *v)
 {
 	int		r;
 	int		g;
 	int		b;
 	char	**colors;
 
+	init_colors(&r, &g, &b);
 	colors = ft_split(*line + start(*line), ',');
 	*v = 0;
 	free(*line);
@@ -47,7 +55,7 @@ void		set_valid_color(int *color, char **line, int *v)
 		ft_putstr("rgb color invalid format :(\n");
 }
 
-int			table_len(char **table)
+int				table_len(char **table)
 {
 	int		len;
 

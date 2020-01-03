@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 21:18:05 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 18:08:58 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 18:34:26 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_vector	init_vector(float x, float y)
 
 	vect.x = x;
 	vect.y = y;
+	return (vect);
 }
 
 void		free_gnl(int fd)

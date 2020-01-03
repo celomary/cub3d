@@ -6,13 +6,13 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 00:18:30 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 18:08:21 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 18:54:56 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int		start(char *str)
+int				start(char *str)
 {
 	int		s;
 
@@ -22,7 +22,7 @@ int		start(char *str)
 	return (s);
 }
 
-int		check_texture_files(char *file)
+int				check_texture_files(char *file)
 {
 	char	*line;
 	int		fd;
@@ -50,7 +50,7 @@ int		check_texture_files(char *file)
 	return (0);
 }
 
-int		is_duplicate(int *dep)
+static int		is_duplicate(int *dep)
 {
 	int		index;
 
@@ -63,7 +63,7 @@ int		is_duplicate(int *dep)
 	return (0);
 }
 
-int		check_duplicate_helper(char *line, int *dep)
+static int		check_duplicate_helper(char *line, int *dep)
 {
 	if (comp_str("R ", line, 2))
 		dep[0]++;
@@ -91,7 +91,7 @@ int		check_duplicate_helper(char *line, int *dep)
 	return (0);
 }
 
-int		check_duplicate(char *file)
+int				check_duplicate(char *file)
 {
 	int		*dep;
 	int		fd;

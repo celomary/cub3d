@@ -6,13 +6,13 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 18:58:29 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 00:21:11 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 19:01:40 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		get_texture_data(t_map *map, t_texture *texture, char *fname)
+void			get_texture_data(t_map *map, t_texture *texture, char *fname)
 {
 	void	*img;
 	int		k;
@@ -22,7 +22,7 @@ void		get_texture_data(t_map *map, t_texture *texture, char *fname)
 	texture->data = (int *)mlx_get_data_addr(img, &k, &k, &k);
 }
 
-int			get_texture_index(t_tuple *tup)
+static int		get_texture_index(t_tuple *tup)
 {
 	if (tup->o > 640)
 		return (4);
@@ -35,7 +35,7 @@ int			get_texture_index(t_tuple *tup)
 	return (2);
 }
 
-void		get_texture_from_file(char **str, t_map *map)
+void			get_texture_from_file(char **str, t_map *map)
 {
 	char	**table;
 
@@ -54,7 +54,8 @@ void		get_texture_from_file(char **str, t_map *map)
 	free(*str);
 }
 
-int			get_pixel_from_img(t_map *map, t_tuple *tup, float height, int y)
+int				get_pixel_from_img(t_map *map,
+t_tuple *tup, float height, int y)
 {
 	int		index;
 	int		offset;
@@ -69,7 +70,7 @@ int			get_pixel_from_img(t_map *map, t_tuple *tup, float height, int y)
 	(int)(y * y_ratio) * map->texture[index].width)]);
 }
 
-int			get_sprite_color(t_map *map, float offset, float height, int y)
+int				get_sprite_color(t_map *map, float offset, float height, int y)
 {
 	float	y_ratio;
 	float	x_ratio;

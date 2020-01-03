@@ -6,13 +6,13 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 18:17:30 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 00:14:07 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 18:56:27 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		get_resolution(t_map *map, char **str, int *v)
+static void		get_resolution(t_map *map, char **str, int *v)
 {
 	char	**resolution;
 	int		len;
@@ -34,7 +34,7 @@ void		get_resolution(t_map *map, char **str, int *v)
 	*str = NULL;
 }
 
-char		*delete_space_map(char **str)
+static char		*delete_space_map(char **str)
 {
 	char	*dspace;
 	int		iter;
@@ -56,7 +56,7 @@ char		*delete_space_map(char **str)
 	return (dspace);
 }
 
-void		get_map_data(t_map *map, char **str, int fd)
+static void		get_map_data(t_map *map, char **str, int fd)
 {
 	int		iter;
 	int		value;
@@ -76,14 +76,14 @@ void		get_map_data(t_map *map, char **str, int fd)
 	map->x_table = (int)ft_strlen(map->str_map[0]);
 }
 
-int			map_recog(char *line)
+static int		map_recog(char *line)
 {
 	if (comp_str(line, "1", 1) || comp_str(line, "0", 1))
 		return (1);
 	return (0);
 }
 
-int			get_info(t_map *map, char *file_name)
+int				get_info(t_map *map, char *file_name)
 {
 	int		fd;
 	int		value;

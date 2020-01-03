@@ -6,13 +6,13 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 16:40:24 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 18:17:06 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 18:50:25 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	put_square(t_map *map, int x, int y, int color)
+static void		put_square(t_map *map, int x, int y, int color)
 {
 	int		i_x;
 	int		i_y;
@@ -30,7 +30,7 @@ static void	put_square(t_map *map, int x, int y, int color)
 	}
 }
 
-void		draw_map2d(t_map *map)
+void			draw_map2d(t_map *map)
 {
 	int		x;
 	int		y;

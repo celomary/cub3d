@@ -6,13 +6,13 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 22:08:37 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 00:15:01 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 18:59:31 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	init_keys(t_map *map)
+static void		init_keys(t_map *map)
 {
 	map->keys[0] = -1;
 	map->keys[1] = -1;
@@ -20,7 +20,7 @@ void	init_keys(t_map *map)
 	map->keys[3] = -1;
 }
 
-int		init_map(t_map *map, char *filename)
+int				init_map(t_map *map, char *filename)
 {
 	map->mlx_ptr = mlx_init();
 	if (get_info(map, filename))

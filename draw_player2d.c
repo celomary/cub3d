@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/12 18:01:11 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 00:32:48 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 18:51:25 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void		draw_square(t_map *map, int color)
 	}
 }
 
-void			draw_line(t_map *map, float o, float x, float y)
+static void		draw_line(t_map *map, float o, float x, float y)
 {
 	float	cos_o;
 	float	sin_o;
@@ -48,7 +48,7 @@ void			draw_line(t_map *map, float o, float x, float y)
 	}
 }
 
-void			draw_view(t_map *map, float x, float y)
+static void		draw_view(t_map *map, float x, float y)
 {
 	float	o;
 	float	step;

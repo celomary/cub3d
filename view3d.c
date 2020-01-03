@@ -6,13 +6,13 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 16:10:56 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/02 22:47:57 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 19:05:19 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void		draw_ray(t_map *map, float height, float x, t_tuple *tup)
+static void			draw_ray(t_map *map, float height, float x, t_tuple *tup)
 {
 	float		iter;
 	float		start;
@@ -38,7 +38,7 @@ void		draw_ray(t_map *map, float height, float x, t_tuple *tup)
 	}
 }
 
-void		wall_printer(t_map *map, int x, t_tuple **tup, float o)
+static void			wall_printer(t_map *map, int x, t_tuple **tup, float o)
 {
 	float	height;
 
@@ -48,7 +48,7 @@ void		wall_printer(t_map *map, int x, t_tuple **tup, float o)
 	free(*tup);
 }
 
-t_vector	player_axis(t_player player)
+t_vector			player_axis(t_player player)
 {
 	t_vector	vect;
 
@@ -57,7 +57,7 @@ t_vector	player_axis(t_player player)
 	return (vect);
 }
 
-void		draw_wallsprites(t_map *map, int x, float o)
+static void			draw_wallsprites(t_map *map, int x, float o)
 {
 	t_vector			*hor;
 	t_vector			*ver;
@@ -80,12 +80,10 @@ void		draw_wallsprites(t_map *map, int x, float o)
 	free(ver);
 }
 
-void		view3d(t_map *map)
+void				view3d(t_map *map)
 {
 	float		step;
 	float		o;
-	float		height;
-	t_tuple		*p_dis;
 	int			x;
 
 	step = 60.0 / map->res.x;

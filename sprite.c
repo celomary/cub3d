@@ -6,13 +6,13 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/30 21:45:35 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/02 22:50:14 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/03 18:48:37 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_vector	get_center2(t_map *map, float x, float y)
+static t_vector		get_center2(t_map *map, float x, float y)
 {
 	t_vector center;
 
@@ -21,7 +21,7 @@ t_vector	get_center2(t_map *map, float x, float y)
 	return (center);
 }
 
-t_vector	get_point(t_map *map, t_vector center, float x, float y)
+static t_vector		get_point(t_map *map, t_vector center, float x, float y)
 {
 	t_vector	vect;
 	float		cp;
@@ -35,7 +35,7 @@ t_vector	get_point(t_map *map, t_vector center, float x, float y)
 	return (vect);
 }
 
-float		find_offset(t_map *map, t_vector center, t_vector point, float o)
+static float		find_offset(t_map *map, t_vector center, t_vector point)
 {
 	t_vector	vect;
 	float		theta;
@@ -46,7 +46,7 @@ float		find_offset(t_map *map, t_vector center, t_vector point, float o)
 	return (sqrt(pow(point.x - vect.x, 2) + pow(point.y - vect.y, 2)));
 }
 
-void		sprite_helper(t_map *map, float offset, float distance,
+static void			sprite_helper(t_map *map, float offset, float distance,
 t_vector x_o)
 {
 	float	height;
@@ -66,7 +66,7 @@ t_vector x_o)
 	}
 }
 
-void		draw_sprite(t_map *map, t_tuple *dis_b, int x, float o)
+void				draw_sprite(t_map *map, t_tuple *dis_b, int x, float o)
 {
 	t_vector		center;
 	t_vector		point;
@@ -75,7 +75,7 @@ void		draw_sprite(t_map *map, t_tuple *dis_b, int x, float o)
 
 	center = get_center2(map, dis_b->x, dis_b->y);
 	point = get_point(map, center, dis_b->x, dis_b->y);
-	offset = find_offset(map, center, point, o);
+	offset = find_offset(map, center, point);
 	distance = get_distance(player_axis(map->player), point);
 	if (get_distance(point, center) > map->grid.x / 2 - 18.5)
 		return ;

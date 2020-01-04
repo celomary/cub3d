@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/01 19:40:57 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/02 18:03:59 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/04 22:02:25 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ int		main(int argc, char **argv)
 	}
 	if (check_duplicate(argv[1]) || check_texture_files(argv[1]))
 		return (1);
-	play(argv[1]);
+	if (argc >= 3)
+		play(argv[1], argv[2]);
+	else
+		play(argv[1], NULL);
 	return (0);
 }

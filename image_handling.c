@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/05 20:56:49 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 00:23:33 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/04 21:53:59 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,15 @@ void	refresh_window(t_map *map, void func(t_map *map))
 {
 	clear(map);
 	display_img(map, func);
+}
+
+int		get_pixel_img(t_map *map, int x, int y)
+{
+	int		*data;
+	int		color;
+	int		k;
+
+	data = (int *)mlx_get_data_addr(map->img_ptr, &k, &k, &k);
+	color = data[x + y * (int)map->res.x];
+	return (color);
 }

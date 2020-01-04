@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 16:10:06 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 23:23:40 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/04 14:50:13 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 static int		color_in_valid_format(char *c)
 {
-	if (*c >= '0' && *c <= '9')
-		return (1);
+	while (*c != '\0')
+	{
+		if (*c >= '0' && *c <= '9')
+			return (1);
+		c++;
+	}
 	return (0);
 }
 

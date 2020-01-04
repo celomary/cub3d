@@ -6,7 +6,7 @@
 /*   By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 16:53:40 by mel-omar          #+#    #+#             */
-/*   Updated: 2020/01/03 23:55:24 by mel-omar         ###   ########.fr       */
+/*   Updated: 2020/01/04 22:02:57 by mel-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@
 # include <math.h>
 # include <fcntl.h>
 # include <mlx.h>
+
+typedef struct	s_bitmap
+{
+	unsigned int			file_size;
+	unsigned int			pd_offset;
+	unsigned int			header_size;
+	unsigned int			image_width;
+	unsigned int			image_height;
+	unsigned int			image_size;
+	unsigned short			planes;
+	unsigned short			bpp;
+	int						width_in_bytes;
+}				t_bitmap;
 
 typedef struct	s_vector
 {
@@ -127,7 +140,7 @@ int				move_player(t_map *map);
 t_vector		player_axis(t_player player);
 int				table_len(char **table);
 void			set_valid_color(int *color, char **line, int *v);
-void			play(char *fname);
+void			play(char *fname, char *save);
 int				check_map(t_map *map);
 int				start(char *str);
 t_vector		init_vector(float x, float y);
@@ -135,4 +148,7 @@ void			free_gnl(int fd);
 int				check_missing_params(int **dep);
 void			clear(t_map *map);
 int				red_cross(void *param);
+int				get_pixel_img(t_map *map, int x, int y);
+void			*ft_memcpy(void *dstp, void *srcp, size_t bytes);
+void			create_bmp(t_map *map);
 #endif

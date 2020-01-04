@@ -6,7 +6,7 @@
 #    By: mel-omar <mel-omar@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/05 21:10:41 by mel-omar          #+#    #+#              #
-#    Updated: 2020/01/03 23:07:09 by mel-omar         ###   ########.fr        #
+#    Updated: 2020/01/04 21:56:42 by mel-omar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC = ft_atoi.c ft_split.c get_next_line.c get_next_line_utils.c\
 	  texture.c cos_sine_sign.c comp_str.c free_chartable.c\
 	  sprite.c draw_sprites.c key_handler.c colors.c image.c\
 	  error_handling.c errors.c display.c get_info_from_file2.c\
-	  check_map.c main.c errors2.c
+	  check_map.c main.c errors2.c write_bmpfile.c ft_memcpy.c
 
 OBJ = ft_atoi.o ft_split.o get_next_line.o get_next_line_utils.o\
 	  get_info_from_file.o image_handling.o horizental_intercept.o\
@@ -29,11 +29,17 @@ OBJ = ft_atoi.o ft_split.o get_next_line.o get_next_line_utils.o\
 	  texture.o cos_sine_sign.o comp_str.o free_chartable.o\
 	  sprite.o draw_sprites.o key_handler.o colors.o image.o\
 	  error_handling.o errors.o display.o get_info_from_file2.o\
-	  check_map.o main.o errors2.o
+	  check_map.o main.o errors2.o write_bmpfile.o ft_memcpy.o
+
+IMG = img.bmp
 
 all :
-	@gcc	-Wall -Wextra -Werror $(SRC) -I /usr/local/include/mlx.h /usr/local/lib/libmlx.a  -framework Opengl -framework AppKit -lm -o $(NAME)
+	@gcc  $(SRC) -I /usr/local/include/mlx.h /usr/local/lib/libmlx.a  -framework Opengl -framework AppKit -lm -o $(NAME)
+
 clean :
-	@rm -f $(OBJ)
+	@rm -f $(OBJ) $(IMG)
+
 fclean : clean
 	@rm -f $(NAME)
+
+re : fclean all

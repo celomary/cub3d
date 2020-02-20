@@ -3,7 +3,7 @@ NO ./texture/wall2.xpm
 SO ./texture/wall3.xpm
 WE ./texture/wall4.xpm
 EA ./texture/wall6.xpm
-S ./texture/barrel.xpm
+S ./texture/plant.xpm
 
 
 C 108,199,249
